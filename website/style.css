@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #050510;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated background */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #1a2cff, #050510 60%);
+  animation: bgMove 12s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+@keyframes bgMove {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(25deg); }
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Navbar */
+.nav {
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Hero */
+.hero {
+  margin: 60px 20px;
+  padding: 40px 25px;
+  border-radius: 28px;
+  text-align: center;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.instant-btn {
+  display: inline-block;
+  padding: 18px 32px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+}
+
+/* iOS Glow */
+.ios-glow {
+  background: linear-gradient(135deg, #4f7cff, #6fa8ff);
+  box-shadow:
+    0 0 25px rgba(90,140,255,0.7),
+    0 0 50px rgba(90,140,255,0.4);
+  animation: float 4s ease-in-out infinite, pulse 2.5s ease-in-out infinite;
+}
+
+/* Glow layer */
+.ios-glow::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background: linear-gradient(135deg, #4f7cff, #6fa8ff);
+  filter: blur(25px);
+  opacity: 0.8;
+  z-index: -1;
+  border-radius: 22px;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 25px rgba(90,140,255,0.7); }
+  50% { box-shadow: 0 0 45px rgba(90,140,255,1); }
+  100% { box-shadow: 0 0 25px rgba(90,140,255,0.7); }
+}
+
+/* Floating Icons */
+.floating-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.float-icon {
+  width: 55px;
+  position: absolute;
+  opacity: 0.9;
+  animation: iconFloat 10s ease-in-out infinite;
+}
+
+.i1 { top: 20%; left: 10%; animation-delay: 0s; }
+.i2 { top: 35%; right: 12%; animation-delay: 2s; }
+.i3 { bottom: 25%; left: 15%; animation-delay: 4s; }
+.i4 { bottom: 18%; right: 18%; animation-delay: 6s; }
+
+@keyframes iconFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
